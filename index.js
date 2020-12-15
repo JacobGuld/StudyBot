@@ -27,5 +27,5 @@ for(const file of files){
 }
 
 
-Bot.login(config.token); //logs in the bot - with the correct token.
+Bot.login(process.env.token); //logs in the bot - with the correct token.
 
