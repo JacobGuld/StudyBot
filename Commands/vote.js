@@ -21,12 +21,10 @@ module.exports = {
      
 		if (args !== undefined){ //Checks if there is more that the message contains more than the command
             
-            
             for(i=0; i<args.length; i++){
 
                 concatText += args[i] + " ";
             }
-            console.log("Concat: " + concatText);
             if(concatText.includes(":")){
 
                 pollOptions = SplitOnChar(concatText, ":");
@@ -42,7 +40,7 @@ module.exports = {
 
                 try {
                     let textChan = Bot.channels.cache.get(channels.VoteChat);
-                    textChan.send(`@${role} Its voting time! \n${textOutput}\n\n`).then(msg =>{ReactToMessage(msg, reactions)});
+                    textChan.send(`@${role} ${message.author.username} Calls for a vote! \n${textOutput}\n\n`).then(msg =>{ReactToMessage(msg, reactions)});
                     
                 } catch (error) {
                     console.log(error.message);
