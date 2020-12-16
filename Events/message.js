@@ -12,7 +12,6 @@ module.exports = (Bot, message) => {
     try{
         cmd.execute(Bot, message, args);
     }catch (e){
-        message.delete();
-        message.reply("\"" + message.content +"\"" + " is not a command").then(msg => {msg.delete({timeout: 3000}) });
+        
     }
 }
