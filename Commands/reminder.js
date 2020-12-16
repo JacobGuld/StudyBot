@@ -17,14 +17,14 @@ module.exports = {
 		if (args !== undefined){ //Checks if there is more that the message contains more than the command
             
             message.delete({timeout: 1000});
-            //console.log(`Hour: ${currentHour}, minutes: ${currentMinute}, seconds: ${currentSeconds}`)
+            console.log(`Hour: ${currentHour}, minutes: ${currentMinute}, seconds: ${currentSeconds}`)
 
             let tempTime = args[0].split(".");
 
             let inputHour = tempTime[0];
             let inputminute = tempTime[1];
 
-            //console.log(`input: hour ${tempTime[0]}, min: ${tempTime[1]}`);
+            console.log(`input: hour ${tempTime[0]}, min: ${tempTime[1]}`);
 
             if(inputHour == currentHour && inputminute == currentMinute){
                 try{
@@ -40,7 +40,7 @@ module.exports = {
                 hours = ((24-currentHour) + inputHour);
 
             }
-            else if (currentHour < inputHour){
+            else if (currentHour <= inputHour){
 
                 hours = inputHour - currentHour;
 
@@ -50,7 +50,7 @@ module.exports = {
             if(inputminute < currentMinute){
 
                 minutes = ((60-currentMinute)+ inputminute);
-                hours -= 1;
+                hours = hours - 1 ;
 
             }
             else if(currentMinute <= inputminute){
@@ -61,7 +61,7 @@ module.exports = {
             
             
             let delay = CalculateMilliseconds(hours, minutes, currentSeconds);
-            //console.log(delay/1000 + "s");
+            console.log(delay/1000 + "s");
             try {
 
                 let textChan = Bot.channels.cache.get(channels.ReminderChat);
