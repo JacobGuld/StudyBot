@@ -12,6 +12,8 @@ module.exports = (Bot, message) => {
     try{
         cmd.execute(Bot, message, args);
     }catch (e){
+
+        console.log(e.message);
         
     }
 }
