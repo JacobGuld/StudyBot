@@ -1,6 +1,5 @@
 const Discord = require('discord.js'); //requires discord.js
 const config = require('./Configs/config.json');
-const roles = require('./Configs/roles.json');
 const channels = require('./Configs/Channels.json');
 const Bot = new Discord.Client(); //Creates bot as a new client
 const fs = require('fs'); //requires fs 
@@ -27,5 +26,5 @@ for(const file of files){
 }
 
 
-Bot.login(process.env.token); //logs in the bot - with the correct token.
+Bot.login(config.token); //logs in the bot - with the correct token.
 

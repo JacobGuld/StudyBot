@@ -19,7 +19,7 @@ module.exports = {
 						channelName += args[i] + " ";
 					}
 					Bot.channels.cache.get(message.member.voice.channel.id).setName(channelName); //changes the name of the current channel
-					console.log(message.member.displayName + " renamed a channel " + channelName);
+					
 					
 				} 
 				else { //if the user did not input a new name for the channel

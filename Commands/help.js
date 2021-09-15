@@ -7,17 +7,15 @@ module.exports = {
 	async execute(Bot, message, args) {
         
 
-		const embed = new Discord.MessageEmbed().setTitle('Command List')
+		const embed = new Discord.MessageEmbed().setTitle('StudyBot Command List')
             .addFields(
-                { name: "#new Chat_name", value: "- Creates new voicechannel" },
-                { name: "#edit New_chat_name", value: "- Renames the current voicechannel" },
-                { name: "#vote Option_1:Option_2: etc..", value: "- Creates a poll with upto 10 options (Tags @everyone)"},
-                { name: "#remind xx.yy message", value: " - Reminds everyone about [Message] at [xx.yy]"},
+                { name: `${prefix}edit New_chat_name`, value: "- Renames the current voicechannel" },
+                { name: `${prefix}vote Option_1:Option_2: etc..`, value: "- Creates a poll with upto 10 options (Tags @everyone)"},
             )
             .setColor(0x9b59b6)
-            .setFooter("Made by Jacob Guldhammer");
+            .setFooter("Made by GULD");
             message.delete({timeout: 500});
-            message.reply(embed).then(msg => {msg.delete({timeout: 30000}) });
+            message.channel.send(embed).then(msg => {msg.delete({timeout: 30000}) });
             return;
 	},
 };

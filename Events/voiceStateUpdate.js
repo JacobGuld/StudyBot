@@ -21,7 +21,6 @@ module.exports = (Bot, oldState, newState) =>{
         }
         try {
             oldState.channel.delete();
-            console.log("A channel was deleted!");
             
         } catch (error) {
             console.log(error)
