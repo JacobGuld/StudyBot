@@ -1,5 +1,4 @@
 const {prefix} = require('../Configs/config.json');
-const channels = require('../Configs/Channels.json')
 const Discord = require('discord.js');
 
 module.exports = {
@@ -11,19 +10,24 @@ module.exports = {
             let reasonText ="";
 
             if(args !== undefined){
+                let channel = message.guild.channels.cache.find(channel => channel.name === "📮absent-register"); 
+                if(args[0].startsWith(":")){
 
-                for(i=0; i<args.length; i++){
+                    let date = args[0].split(":");
 
-                    reasonText += args[i] + " ";
-                }
-
-                try {
-
-                    let textChan = Bot.channels.cache.get(channels.AbsentChat);
-                    textChan.send(`@everyone : @${message.author.username} is absent today! Reason: ${reasonText}`).then(msg =>{msg.react('😟')});
+                    let absentDate = date;
                     
-                } catch (error) {
-                    console.log(error);
+                    reasonText = GenerateReason(1, args);
+
+                    sendMessageToChannel(`@everyone : @${message.author.username} will be absent on ${absentDate} Reason: ${reasonText}`, channel);
+                    
+                }
+                else{
+
+                    reasonText = GenerateReason(0, args);
+                    
+                    sendMessageToChannel(`@everyone : @${message.author.username} is absent today! Reason: ${reasonText}`, channel);
+
                 }
             }
             else{
@@ -33,3 +37,25 @@ module.exports = {
             return;
 	},
 };
+
+function GenerateReason(i, args){
+    let text = "";
+    for(i; i < args.length; i++){
+
+        text += args[i] + " ";
+    }
+    return text;
+}
+
+function sendMessageToChannel(message, channel){
+
+    try {
+        
+        //let textChan = Bot.channels.cache.get(channels.AbsentChat);
+        channel.send(message).then(msg =>{msg.react('😟')});
+        
+    } catch (error) {
+        console.log(error);
+    }
+
+}

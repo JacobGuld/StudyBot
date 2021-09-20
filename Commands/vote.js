@@ -1,5 +1,5 @@
 const config = require('../Configs/config.json');
-const channels = require('../Configs/Channels.json');
+//const channels = require('../Configs/Channels.json');
 
 const minArgs = 1;
 var currentHour = new Date().getHours();
@@ -20,7 +20,8 @@ module.exports = {
         
      
 		if (args !== undefined){ //Checks if there is more that the message contains more than the command
-            
+            let channel = message.guild.channels.cache.find(channel => channel.name === "📮absent-register"); 
+
             for(i=0; i<args.length; i++){
 
                 concatText += args[i] + " ";
@@ -28,10 +29,10 @@ module.exports = {
             if(concatText.includes(":")){
 
                 pollOptions = SplitOnChar(concatText, ":");
-
-                for(i=0; i<pollOptions.length; i++){
-                    reactions.push(Save[i]);
-                    textOutput += `${Save[i]} : ${pollOptions[i]} \n\n`;
+                let topic = pollOptions[0];
+                for(i=1; i<pollOptions.length; i++){
+                    reactions.push(Save[i-1]);
+                    textOutput += `${Save[i-1]} : ${pollOptions[i]} \n\n`;
                 }
 
                 textOutput += `⏭️ : Dont Care \n \n \n`;
@@ -39,8 +40,8 @@ module.exports = {
 
 
                 try {
-                    let textChan = Bot.channels.cache.get(channels.VoteChat);
-                    textChan.send(`@${role} ${message.author.username} Calls for a vote! \n${textOutput}\n\n`).then(msg =>{ReactToMessage(msg, reactions)});
+                    //let textChan = Bot.channels.cache.get(channels.VoteChat);
+                    channel.send(`@${role} ${topic}! \n${textOutput}\n\n`).then(msg =>{ReactToMessage(msg, reactions)});
                     
                 } catch (error) {
                     console.log(error.message);
