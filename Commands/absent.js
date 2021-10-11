@@ -13,21 +13,23 @@ module.exports = {
             let absentDate = "";
 
             if(args !== undefined){
-
             
-                if(args[0].includes("/")){
-
-                    absentDate = ` will be absent on ${args[0]}.`;
-                    reasonText = generateReason(args, 1);
-                    
-                }
-                else{
-                    absentDate = " is absent today!";
-                    reasonText = generateReason(args, 0);
-    
-                }
-                
                 try {
+
+                    if(args[0].includes("/")){
+                        let tempdate = args[0].split("/");
+                        
+                        absentDate = `${tempdate[0]}. ${convertMonth(tempdate[1])}`;
+                        reasonText = generateReason(args, 1);
+                        
+                    }
+                    else{
+                        let date = new Date();
+                        absentDate = `${date.getDate()}. ${convertMonth(date.getMonth()+1)}`;
+                        reasonText = generateReason(args, 0);
+        
+                    }
+                    
 
                     let textChan = Bot.channels.cache.get(channels.AbsentChat);
 
@@ -37,12 +39,16 @@ module.exports = {
                     { name: `Date`, value:`${absentDate}`},
                     { name: `Reason`, value: `${reasonText}`})
                     .setColor('#f44336');
-                    textChan.send("@everyone");
+                    //textChan.send("@everyone");
                     textChan.send(embed).then(msg =>{msg.react('😟')});
-                    
+                        
+                        
                 } catch (error) {
-                    console.log(error);
+                        
+                    console.log(error.message);
+                    message.reply('Im sorry, something went wrong.. Please try again').then(msg =>{msg.delete({timeout: 3000})});
                 }
+             
             }
             else{
                 message.reply('Please give me a reason for youre absent').then(msg =>{msg.delete({timeout: 2000})});
@@ -61,4 +67,53 @@ function generateReason(input, startPoint){
     }
 
     return tempVariable;
+}
+
+function convertMonth(input){
+
+    let month ="";
+
+    switch (input) {
+        case "1":
+                month = "Januar";
+            break;
+        case "2":
+                month = "Februar";
+            break;
+        case "3":
+                month = "Marts";
+            break;
+        case "4":
+                month = "April";
+            break;
+        case "5":
+                month = "Maj";
+            break;
+        case "6":
+                month = "Juni";
+            break;
+        case "7":
+                month = "Juli";
+            break;
+        case "8":
+                month = "August";
+            break;
+        case "9":
+                month = "September";
+            break;
+        case "10":
+                month = "Oktober";
+            break;
+        case "11":
+                month = "November";
+            break;
+        case "12":
+                month = "December";
+            break;
+        default: 
+                month = "?"
+            break;
+    }
+    return month;
+
 }
