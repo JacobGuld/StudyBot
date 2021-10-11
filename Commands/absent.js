@@ -10,17 +10,35 @@ module.exports = {
             message.delete({timeout: 500});
             let reasonText ="";
 
+            let absentDate = "";
+
             if(args !== undefined){
 
-                for(i=0; i<args.length; i++){
+            
+                if(args[0].includes("/")){
 
-                    reasonText += args[i] + " ";
+                    absentDate = ` will be absent on ${args[0]}.`;
+                    reasonText = generateReason(args, 1);
+                    
                 }
-
+                else{
+                    absentDate = " is absent today!";
+                    reasonText = generateReason(args, 0);
+    
+                }
+                
                 try {
 
                     let textChan = Bot.channels.cache.get(channels.AbsentChat);
-                    textChan.send(`@everyone : @${message.author.username} is absent today! Reason: ${reasonText}`).then(msg =>{msg.react('😟')});
+
+                    const embed = new Discord.MessageEmbed().setTitle('Absence Register')
+                    .addFields(
+                    { name: `Group Member`, value: `@${message.author.username}`},
+                    { name: `Date`, value:`${absentDate}`},
+                    { name: `Reason`, value: `${reasonText}`})
+                    .setColor('#f44336');
+                    textChan.send("@everyone");
+                    textChan.send(embed).then(msg =>{msg.react('😟')});
                     
                 } catch (error) {
                     console.log(error);
@@ -33,3 +51,14 @@ module.exports = {
             return;
 	},
 };
+
+function generateReason(input, startPoint){
+    let tempVariable ="";
+
+    for(i=startPoint; i<input.length; i++){
+
+        tempVariable += input[i] + " ";
+    }
+
+    return tempVariable;
+}
