@@ -25,7 +25,7 @@ module.exports = {
                     }
                     else{
                         let date = new Date();
-                        absentDate = `${date.getDate()}. ${convertMonth(date.getMonth()+1)}`;
+                        absentDate = `${date.getDate()}. ${convertMonth((date.getMonth()+1)).toString()}`;
                         reasonText = generateReason(args, 0);
         
                     }
@@ -39,9 +39,14 @@ module.exports = {
                     { name: `Date`, value:`${absentDate}`},
                     { name: `Reason`, value: `${reasonText}`})
                     .setColor('#f44336');
-                    //textChan.send("@everyone");
-                    textChan.send(embed).then(msg =>{msg.react('😟')});
-                        
+                    if (args[0 != "test"]){
+                        textChan.send("@everyone");
+                        textChan.send(embed).then(msg =>{msg.react('😟')});
+                    }
+                    else{
+                        textChan.send(embed).then(msg =>{msg.react('😟')});  
+                    }
+                      
                         
                 } catch (error) {
                         
