@@ -25,7 +25,8 @@ module.exports = {
                     }
                     else{
                         let date = new Date();
-                        absentDate = `${date.getDate()}. ${convertMonth((date.getMonth()+1)).toString()}`;
+                        let currentMonth = date.getMonth()+1;
+                        absentDate = `${date.getDate()}. ${convertMonth(currentMonth.toString())}`;
                         reasonText = generateReason(args, 0);
         
                     }
