@@ -54,11 +54,8 @@ module.exports = {
                     console.log(error.message);
                     message.reply('Im sorry, something went wrong.. Please try again').then(msg =>{msg.delete({timeout: 3000})});
                 }
-             
             }
-            else{
-                message.reply('Please give me a reason for youre absent').then(msg =>{msg.delete({timeout: 2000})});
-            }
+            
 
             return;
 	},
