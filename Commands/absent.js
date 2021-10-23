@@ -1,5 +1,4 @@
-const {prefix} = require('../Configs/config.json');
-const channels = require('../Configs/Channels.json')
+const {AbsentRegisterChat} = require('../Configs/Channels.json')
 const Discord = require('discord.js');
 
 module.exports = {
@@ -33,7 +32,7 @@ module.exports = {
         
                     }
 
-                    let textChan = Bot.channels.cache.get(channels.AbsentChat);
+                    let textChan = Bot.channels.cache.get(AbsentRegisterChat);
                 
                     const embed = new Discord.MessageEmbed().setTitle('Absence Register')
                     .addFields(

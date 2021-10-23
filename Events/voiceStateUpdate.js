@@ -1,9 +1,9 @@
 const newChat = require('../Actions/newChat');
-const channels = require('../Configs/Channels.json');
+const {GeneralVoiceChat} = require('../Configs/Channels.json');
 
 module.exports = (Bot, oldState, newState) =>{
 
-    const createNew = Bot.channels.cache.find(ch => ch.id === channels.GeneralChat);
+    const createNew = Bot.channels.cache.find(ch => ch.id === GeneralVoiceChat);
 
     if (newState.channelID === createNew.id){
 

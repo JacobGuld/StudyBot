@@ -1,5 +1,5 @@
 const config = require('../Configs/config.json');
-const channels = require('../Configs/Channels.json');
+const {VoteChat} = require('../Configs/Channels.json');
 
 const minArgs = 1;
 var currentHour = new Date().getHours();
@@ -41,7 +41,7 @@ module.exports = {
 
 
                 try {
-                    let textChan = Bot.channels.cache.get(channels.VoteChat);
+                    let textChan = Bot.channels.cache.get(VoteChat);
                     textChan.send(`@${role} ${message.author.username} Calls for a vote! \n${textOutput}\n\n`).then(msg =>{ReactToMessage(msg, reactions)});
                     
                 } catch (error) {

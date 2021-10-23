@@ -1,7 +1,8 @@
 {
     "maxUsersInVc": 8,
-    "GeneralChat": "884724556596654115",
-    "VCCategory": "884724556596654113",
-    "VoteChat": "887760904417083422",
-    "AbsentChat": "888003875553017936"
+    "GeneralChat": "",
+    "VoteChat": "",
+    "AbsentRegisterChat": "",
+    "VoiceChannelsCategory": "",
+    "GeneralVoiceChat": ""
 }
