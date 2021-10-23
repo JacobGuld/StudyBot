@@ -2,6 +2,7 @@ const config = require('../Configs/config.json');
 const channels = require('../Configs/Channels.json');
 module.exports = {
 	name: 'edit',
+	Title:'Edit',
 	example:'edit <NewChatName>',
 	description: 'Changes the name of the current chat',
 	async execute(Bot, message, args) {

@@ -1,10 +1,9 @@
 const {prefix} = require('../Configs/config.json');
 const Discord = require('discord.js');
 
-const fs = require('fs');
-
 module.exports = {
 	name: 'help',
+    Title:'Help',
     description: 'Displays help menu',
 	async execute(Bot, message, args) {
         
@@ -19,7 +18,7 @@ module.exports = {
             commands.forEach(cmd => {
 
                 if(cmd.name != "help"){
-                    embed.addFields({name:`${prefix}${cmd.name}`, value: `- ${cmd.description} \n \n Usage: \n ${prefix}${cmd.example}`});
+                    embed.addFields({name:`${cmd.Title}`, value: `${prefix}${cmd.example} \n - ${cmd.description}`});
                 }
 
             });

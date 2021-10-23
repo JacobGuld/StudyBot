@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'absent',
+    Title:'Absent',
     example:'absent <dd/mm> <Reason>',
     description: 'Lets the group know that a user is absent and why',
 	async execute(Bot, message, args) {
