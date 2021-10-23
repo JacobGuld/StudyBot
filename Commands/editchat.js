@@ -1,5 +1,5 @@
 const config = require('../Configs/config.json');
-const {GeneralChat} = require('../Configs/Channels.json');
+const {GeneralVoiceChat} = require('../Configs/Channels.json');
 module.exports = {
 	name: 'edit',
 	Title:'Edit',
@@ -9,7 +9,7 @@ module.exports = {
 		
 		if(message.member.voice.channel !== null){ //Checks if the user is in a voice channel
                 
-			if(message.member.voice.channel.id !== GeneralChat){ //Checks if the user is in the general voice channel
+			if(message.member.voice.channel.id !== GeneralVoiceChat){ //Checks if the user is in the general voice channel
 
 				if (args[0] !== undefined){ //checks if the user has input a new name for the channel
 
