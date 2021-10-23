@@ -8,7 +8,7 @@ module.exports = (Bot, message) => {
     const cmdName = args.shift().toLowerCase();
 
     const cmd = Bot.commands.get(cmdName)
-        
+    
     try{
         cmd.execute(Bot, message, args);
     }catch (e){
