@@ -7,7 +7,8 @@ var currentMinute = new Date().getMinutes();
 
 module.exports = {
 	name: 'vote',
-	description: 'Creating a poll',
+	example:'vote <OPTION1>:<OPTION2>:etc..',
+	description: 'Creates a poll, with upto 10 options',
 	execute(Bot, message, args) {
         message.delete({timeout: 1000});
 

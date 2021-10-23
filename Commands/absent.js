@@ -4,6 +4,7 @@ const Discord = require('discord.js');
 
 module.exports = {
 	name: 'absent',
+    example:'absent <dd/mm> <Reason>',
     description: 'Lets the group know that a user is absent and why',
 	async execute(Bot, message, args) {
 
@@ -30,24 +31,22 @@ module.exports = {
                         reasonText = generateReason(args, 0);
         
                     }
-                    
 
                     let textChan = Bot.channels.cache.get(channels.AbsentChat);
-
+                
                     const embed = new Discord.MessageEmbed().setTitle('Absence Register')
                     .addFields(
                     { name: `Group Member`, value: `@${message.author.username}`},
                     { name: `Date`, value:`${absentDate}`},
                     { name: `Reason`, value: `${reasonText}`})
                     .setColor('#f44336');
-                    if (args[0 != "test"]){
+                    if (args[0] != "test"){
                         textChan.send("@everyone");
                         textChan.send(embed).then(msg =>{msg.react('😟')});
                     }
                     else{
                         textChan.send(embed).then(msg =>{msg.react('😟')});  
-                    }
-                      
+                    }   
                         
                 } catch (error) {
                         
@@ -55,7 +54,6 @@ module.exports = {
                     message.reply('Im sorry, something went wrong.. Please try again').then(msg =>{msg.delete({timeout: 3000})});
                 }
             }
-            
 
             return;
 	},

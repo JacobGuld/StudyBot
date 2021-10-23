@@ -1,21 +1,28 @@
 const {prefix} = require('../Configs/config.json');
 const Discord = require('discord.js');
 
+const fs = require('fs');
+
 module.exports = {
 	name: 'help',
     description: 'Displays help menu',
 	async execute(Bot, message, args) {
         
+        message.delete({timeout: 100});
 
 		const embed = new Discord.MessageEmbed().setTitle('StudyBot Command List')
-            .addFields(
-                { name: `${prefix}edit [NEW CHATNAME]`, value: "- Renames the current voicechannel" },
-                { name: `${prefix}vote [OPTION_1]:[OPTION_2]:etc..`, value: "- Creates a poll with upto 10 options (Tags @everyone)"},
-                {name: `${prefix}absent (optional)[DATE] [REASON]`, value: `- Lets the group know when (default today) and why youre absent.`}
-            )
             .setColor(0x9b59b6)
             .setFooter("Made by GULD");
-            message.delete({timeout: 500});
+
+            let commands = Bot.commands;
+
+            commands.forEach(cmd => {
+
+                if(cmd.name != "help"){
+                    embed.addFields({name:`${prefix}${cmd.name}`, value: `- ${cmd.description} \n \n Usage: \n ${prefix}${cmd.example}`});
+                }
+
+            });
             message.channel.send(embed).then(msg => {msg.delete({timeout: 30000}) });
             return;
 	},
