@@ -7,7 +7,6 @@ module.exports = {
     description: 'Displays help menu',
 	async execute(Bot, message, args) {
         
-        message.delete({timeout: 100});
 
 		const embed = new Discord.MessageEmbed().setTitle('StudyBot Command List')
             .setColor(0x9b59b6)
@@ -22,6 +21,7 @@ module.exports = {
                 }
 
             });
+            
             message.channel.send(embed).then(msg => {msg.delete({timeout: 30000}) });
             return;
 	},

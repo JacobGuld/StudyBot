@@ -1,8 +1,13 @@
 {
-    "maxUsersInVc": 8,
-    "GeneralChat": "",
-    "VoteChat": "",
-    "AbsentRegisterChat": "",
-    "VoiceChannelsCategory": "",
-    "GeneralVoiceChat": ""
+  "maxUsersInVc": 8,
+  "GeneralTextChat": "",
+  "VoteChat": "",
+  "AbsentRegisterChat": "",
+  "GeneralVoiceChat": "",
+  "StudyChat": "",
+  "ContactChat": "",
+  "memeChat": "",
+  "ProjectCategory": "",
+  "SocialCategory": "",
+  "VoiceChannelsCategory": ""
 }
