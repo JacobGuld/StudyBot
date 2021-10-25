@@ -4,6 +4,7 @@ const fs = require('fs');
 const path = './Configs/Channels.json';
 const secPath = './Configs/secCode.json';
 
+
 module.exports = {
     name: 'setup',
     Title: 'Setup',
@@ -29,8 +30,6 @@ module.exports = {
                 return;
             }
             
-
-
             DeleteAllChannels(message);
 
             let categories = ['PROJECT', 'SOCIAL', 'VOICE CHANNELS'];
@@ -113,11 +112,8 @@ function GenerateCategory(message, category, channelType, channels, embed){
                     UpdateJson(channels[i], chan.id.toString());
                 });
             }
-            
         };
-        
     })
-
 }
 
 function UpdateJson(channel, channelId){
@@ -193,4 +189,5 @@ function CheckPassword(password){
 
 function GenerateNewPasscode(){
     return Math.floor(Math.random() * (9999 - 1000) + 1000);
+
 }
