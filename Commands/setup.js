@@ -2,6 +2,7 @@ const {prefix} = require('../Configs/config.json')
 const Discord = require('discord.js');
 const fs = require('fs');
 const path = './Configs/Channels.json';
+const secPath = './Configs/secCode.json';
 
 
 module.exports = {
@@ -14,6 +15,21 @@ module.exports = {
 
         if(message.member.hasPermission("ADMINISTRATOR")){
 
+            if(args[0] != undefined){
+
+                if(!CheckPassword(args[0])){ 
+
+                    let secFile = LoadJSON(secPath);
+                    let currentPass = secFile.Password;
+                    SaveJSON(secPath, secFile);
+                    message.reply(`Please authorize the setup action with the password ${currentPass}`).then(msg => {msg.delete({timeout: 20000})});
+                    return;
+                }
+            }else {
+                message.reply(`Please authorize the setup action with a password`).then(msg => {msg.delete({timeout: 20000})});
+                return;
+            }
+            
             DeleteAllChannels(message);
 
             let categories = ['PROJECT', 'SOCIAL', 'VOICE CHANNELS'];
@@ -96,11 +112,8 @@ function GenerateCategory(message, category, channelType, channels, embed){
                     UpdateJson(channels[i], chan.id.toString());
                 });
             }
-            
         };
-        
     })
-
 }
 
 function UpdateJson(channel, channelId){
@@ -155,4 +168,26 @@ function LoadJSON(filePath =''){
 
 function SaveJSON(filePath ='', json = '"'){
     return fs.writeFileSync(filePath, JSON.stringify(json, null, 2))
+}
+
+function CheckPassword(password){
+
+    let secFile = LoadJSON(secPath);
+
+    if(secFile.Password == password){
+        
+        let newPass = GenerateNewPasscode();
+        secFile.Password = newPass;
+        SaveJSON(secPath, secFile);
+        return true; 
+    }else{
+        return false;
+    }
+    
+    
+}
+
+function GenerateNewPasscode(){
+    return Math.floor(Math.random() * (9999 - 1000) + 1000);
+
 }
