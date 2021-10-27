@@ -7,7 +7,29 @@ A Discord bot developed to support Group work.
 - [Inital Run](#Initial-Run)
 - [Features](#Features)
 
+## Features
 
+### Keeps track of voice channels
+
+   The bot will keep your discord server clean. By joining the general voice chat, a member will create a new voicehannel.
+   The member will be moved to this voice channel.
+   Empty voice channels will be deleted, keeping the server clean.
+   
+### Polls
+
+   The bot will allow members to create polls, with upto 10 vote options.
+   The bot will create reactions, responding to the vote options.
+   
+   To keep the server clean, all polls will be posted in the \#Vote channel.
+   
+### Update configs
+
+   The bot enables **Admins** to update channel id´s and what prefix the StudyBot will recognize, without entering the config files.
+   
+### Register absence
+
+   The bot enables members to announce absence, with proper information, to other group members.
+   
 ## Discord Server Template
 
    The StudyBot requires the use of a specific Server template. This template will be applied to the discord server during the setup process. 
@@ -54,28 +76,3 @@ A Discord bot developed to support Group work.
    ```
 2. **Restart bot.**
 3. **The bot is ready**
-
-## Features
-
-### Keeps track of voice channels
-
-   The bot will keep your discord server clean. By joining the general voice chat, a member will create a new voicehannel.
-   The member will be moved to this voice channel.
-   Empty voice channels will be deleted, keeping the server clean.
-   
-### Polls
-
-   The bot will allow members to create polls, with upto 10 vote options.
-   The bot will create reactions, responding to the vote options.
-   
-   To keep the server clean, all polls will be posted in the \#Vote channel.
-   
-### Update configs
-
-   The bot enables **Admins** to update channel id´s and what prefix the StudyBot will recognize, without entering the config files.
-   
-### Register absence
-
-   The bot enables members to announce absence, with proper information, to other group members.
-   
-
