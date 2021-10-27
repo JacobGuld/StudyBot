@@ -1,4 +1,5 @@
 const {prefix} = require('../Configs/config.json');
+const {version, name} = require('../package.json');
 const Discord = require('discord.js');
 
 module.exports = {
@@ -9,11 +10,10 @@ module.exports = {
         
 		const embed = new Discord.MessageEmbed()
             .setColor(0x9b59b6)
-            .setFooter("Made by GULD");
+            .setFooter(`${name} version: ${version}`);
 
             let commands = Bot.commands;
 
-            console.log(args[0]);
             if(args[0] == undefined){
                 embed.setTitle("Command List")
                 if(!message.member.hasPermission("ADMINISTRATOR")){
@@ -24,7 +24,7 @@ module.exports = {
     
                             if(cmd.permissions != "ADMIN"){
     
-                                embed.addFields({name:`${cmd.Title}`, value: `${prefix}${cmd.example}. \n\n*More information: ${prefix}${this.name} ${cmd.name}*`});
+                                embed.addFields({name:`${cmd.Title}`, value: `${prefix}${cmd.example}. \n*More information: ${prefix}${this.name} ${cmd.name}*\n`});
                             } 
                         }
                     });
@@ -35,21 +35,22 @@ module.exports = {
     
                         if(cmd.name != "help"){
     
-                            embed.addFields({name:`${cmd.Title}`, value: `${prefix}${cmd.example}. \n\n*More information: ${prefix}${this.name} ${cmd.name}*`});
+                            embed.addFields({name:`${cmd.Title}`, value: `${prefix}${cmd.example}. \n*More information: ${prefix}${this.name} ${cmd.name}*\n`});
                             
                         }
                     });
                 }
+                message.channel.send(embed).then(msg => {msg.delete({timeout: 20000}) });
             }
             else{
                 
                 let command = FindCommand(commands, args[0])
-                console.log(command);
+            
                 if(command != undefined){
 
                     let tempVal = command.param;
                     embed.setTitle(`Help Menu: ${command.Title}`)
-                    embed.addFields({name:`${command.Title}`, value: `- ${command.description}.`});
+                    embed.addFields({name:`${command.Title}`, value: `${command.description}.`});
                     embed.addFields({name:`Usage`, value: `${prefix}${command.example}`});
 
                     if(tempVal.includes("/")){
@@ -73,9 +74,9 @@ module.exports = {
                     message.reply("I dont know how to help you..").then(msg => {msg.delete({timeout: 5000})});
                 }
 
+                message.channel.send(embed).then(msg => {msg.delete({timeout: 20000}) });
             }
             
-            message.channel.send(embed).then(msg => {msg.delete({timeout: 30000}) });
             return;
 	},
 };
