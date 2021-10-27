@@ -4,7 +4,8 @@ module.exports = {
 	name: 'edit',
 	Title:'Edit',
 	example:'edit <NewChatName>',
-	description: 'Changes the name of the current chat',
+	param:"NewChatName: Represents the new chat name.",
+	description: 'Changes the name of the currently joined voice channel.',
 	async execute(Bot, message, args) {
 		
 		if(message.member.voice.channel !== null){ //Checks if the user is in a voice channel

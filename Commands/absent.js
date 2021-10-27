@@ -5,7 +5,8 @@ module.exports = {
 	name: 'absent',
     Title:'Absent',
     example:'absent <dd/mm> <Reason>',
-    description: 'Lets the group know that a user is absent and why',
+    param:"dd: Represent day/mm: Represent month/Reason:The reason for absence",
+    description: 'Creates and embed, telling other group members that you will be absent on a specific date. \nThe embed will be sent in 📮absent-register and @everyone will be tagged.\n*If the date is blank, it will default to todays date.*',
 	async execute(Bot, message, args) {
 
             message.delete({timeout: 500});

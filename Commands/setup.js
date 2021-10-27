@@ -8,8 +8,10 @@ const secPath = './Configs/secCode.json';
 module.exports = {
     name: 'setup',
     Title: 'Setup',
-    example: `setup`,
-    description: 'Deletes all current categories and channel. Creating all new categories and channels. ',
+    example: `setup <password>`,
+    param:"password:Represents the current password",
+    permissions: 'ADMIN',
+    description: 'Setup the discord server, following the StudyBot server Template.\n *Be aware all current categories and channels will be deleted.*',
 
     async execute(Bot, message, args){
 
