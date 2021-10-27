@@ -1,5 +1,5 @@
 # StudyBot
-A Discord bot developed to support Group work.
+A bot developed to support group work on Discord, while organizing and keeping the discord server clean.
 
 **Contents**
 - [Features](#Features)
