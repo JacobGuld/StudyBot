@@ -2,10 +2,11 @@
 A Discord bot developed to support Group work.
 
 **Contents**
+- [Features](#Features)
 - [Discord Server Template](#Discord-Server-Template)
 - [Installation](#Installation)
 - [Inital Run](#Initial-Run)
-- [Features](#Features)
+
 
 ## Features
 
