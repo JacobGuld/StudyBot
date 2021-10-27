@@ -5,6 +5,8 @@ module.exports = {
 	name: 'update',
     Title:'Update',
     example: `update <ITEM> <NEWITEM>`,
+    param:"ITEM:Represents the item that should be updated in the config files. Could be the channel name or prefix/NEWITEM:Represents the new value. Could be channel id or new prefix.",
+    permissions: 'ADMIN',
     description: 'Updates the config files',
 	async execute(Bot, message, args) {
 

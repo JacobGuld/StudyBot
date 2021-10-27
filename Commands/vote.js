@@ -8,8 +8,9 @@ var currentMinute = new Date().getMinutes();
 module.exports = {
 	name: 'vote',
     Title:'Vote',
-	example:'vote <OPTION1>:<OPTION2>:etc..',
-	description: 'Creates a poll, with upto 10 options',
+	example:'vote <OPTION>:<OPTION>:etc..',
+    param:"Option:Represents a voting option.",
+	description: 'Creates a poll, with the given voteoptions.\nWith this command you can create polls with upto 10 options.\n*Will always create an "skip" options, for people who doesn´t have an opinion about the vote.*',
 	execute(Bot, message, args) {
         message.delete({timeout: 1000});
 
