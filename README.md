@@ -2,22 +2,23 @@
 A Discord bot developed to support Group work.
 
 **Contents**
-- Functionalies
+- Commands
 - Template
-- Setup
+- [Setup](#Bot-Setup)
 - Inital Run
 
-### Functionalities
-- Has build in **Template**.
+### Commands
+- Setup
+- Update 
 - Voting System
 - Absence registry
-- Keeps track of voicechannels
+- Edit VC Name
 
 ### Template
 
 ![Discord Template](https://user-images.githubusercontent.com/45423701/138615911-837b9d5c-e0af-4dee-b43c-8ecc5808c6bd.PNG)
 
-## Setup
+## Bot Setup
 1. **Create a Discord Bot** 
    - [Discord Developer portal](https://discord.com/developers/docs/intro)
    - Add the bot to your Discord server
@@ -57,3 +58,4 @@ A Discord bot developed to support Group work.
 2. **Restart bot.**
 3. **The bot is ready**
    
+
