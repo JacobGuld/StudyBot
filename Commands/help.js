@@ -51,7 +51,7 @@ module.exports = {
                     let tempVal = command.param;
                     embed.setTitle(`Help Menu: ${command.Title}`)
                     embed.addFields({name:`${command.Title}`, value: `${command.description}.`});
-                    embed.addFields({name:`Usage`, value: `${prefix}${command.example}`});
+                    embed.addFields({name:`Command`, value: `${prefix}${command.example}`});
 
                     if(tempVal.includes("/")){
                         let tempParams = tempVal.split("/");
