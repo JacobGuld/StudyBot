@@ -8,11 +8,11 @@ A Discord bot developed to support Group work.
 - [Inital Run](#Initial-Run)
 
 ## Commands
-- Setup
-- Update 
-- Voting System
-- Absence Registry
-- Edit VC Name
+- [Setup](#Setup)
+- [Update](#Update) 
+- [Voting System](#Voting-System)
+- [Absence Registry](#Absence-Registry)
+- [Edit VC Names](#Edit-VC-Name)
 
 ### Setup
 
