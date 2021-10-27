@@ -3,7 +3,7 @@ A Discord bot developed to support Group work.
 
 **Contents**
 - [Commands](#Commands)
-- [Template](#Template)
+- [Server Template](#Template)
 - [Setup](#Bot-Setup)
 - [Inital Run](#Initial-Run)
 
@@ -95,7 +95,10 @@ A Discord bot developed to support Group work.
      - <NewChatName> The new name of the voice channel.
    
 
-## Template
+## Server Template
+
+   The StudyBot requires the use of a specific Server template. 
+
 
 ![Discord Template](https://user-images.githubusercontent.com/45423701/138615911-837b9d5c-e0af-4dee-b43c-8ecc5808c6bd.PNG)
 
