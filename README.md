@@ -2,10 +2,10 @@
 A Discord bot developed to support Group work.
 
 **Contents**
-- Commands
-- Template
+- [Commands](#Commands)
+- [Template](#Template)
 - [Setup](#Bot-Setup)
-- Inital Run
+- [Inital Run](#Initial-Run)
 
 ### Commands
 - Setup
